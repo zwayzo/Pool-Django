@@ -1,0 +1,43 @@
+<form>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname"><br>
+
+    <label for="name">Last Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone"><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="200"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label>Gender:</label>
+    <input type="radio" id="gender_male" name="gender" value="Male">
+    <label for="gender_male">Male</label>
+
+    <input type="radio" id="gender_female" name="gender" value="Female">
+    <label for="gender_female">Female</label>
+
+
+    <label for="student">Student at 42?</label>
+    <input type="checkbox" id="student" name="student" value="Yes"><br>
+    <button type="button" onclick="displayFormContents()">Submit</button>
+
+
+  </form>
+  <!-- <div id="output" style="margin-top:20px; font-weight:bold;"></div> -->
+  <script src="popup.js"></script>
+  
+</html>
+
+<!-- • Firstname: a text field.
+• Name: a text field, also.
+• Age: you must use the specific numeric field specific to the HTML5.
+• Phone: you must use the tel field specific to the HTML5.
+• Email : you must use the email field specific to the HTML5.
+• Student at 42?: you must use the checkbox field.
+• Gender: you must use radio buttons with the values Male, Female and Other.
+• A form submission button. The onclick attribute of your button must be: ’displayFormContent' -->
