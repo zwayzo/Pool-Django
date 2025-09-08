@@ -11,7 +11,7 @@ def numbers():
     for char in tmp:
         out += char
         if char == ',':
-            print(out[:-1] + '\n')
+            print(out[:-1])
             out = ""
 
 if __name__ == "__main__":
