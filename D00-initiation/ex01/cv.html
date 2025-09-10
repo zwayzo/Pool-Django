@@ -1,5 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    h3 {
+        color: #323b4c;
+        margin-top: 50px;
+        font-size: 40px;
+    }
+h5 {
+    color: #323b4c;
+    /* font-size: 20px; */
+    margin-top: -20px;
+}
+.top-left-square {
+    border-radius: 25px;
+    position: absolute;
+    top: -20px;
+    left: -2px;
+    width: 220px;
+    height: 200px;
+    background-color: #323b4c; /* gray */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.a4-container {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    padding: 40px 30px;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+@media print {
+    body, .a4-container {
+        box-shadow: none;
+        background: #fff;
+    }
+}
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+body {
+    margin-top: -30px;
+    /* position: relative; */
+    
+    text-align: center; /* Center text horizontally */
+    background-color: #efefef; /* Changed page color */
+}
+.informations {
+    background-color: #323b4c;
+    color: #fff;
+    padding: 24px 40px;
+    border-radius: 60px;
+    margin-top: 30px;
+    font-size: 20px;
+    min-width: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: inline-block;
+    height: 30px;
+}
+.about-me{
+    border-radius: 25px;
+    position: absolute;
+    left: -2px;
+    width: 300px;
+    height: 1130px;
+    background-color: #323b4c; /* gray */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 60px;
+    /* border: red solid 2px; */
+}
+.about-me h1{
+    color: white;
+    font-size: 30px;
+    /* top: -90px; */
+    margin-left: 40px;
+}
+.about-me h2{
+    color: white;
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: -30px;
+}
+.experience h2{
+    color: #323b4c;
+    font-size: 20px;
+    margin-left: -150px;
+    margin-top: -30px;
+}
+.about-me h5, ul, ol{
+    color: white;
+    font-size: 13px;
+    margin-left: 40px;
+    margin-top: 10px;
+    /* justify-content: left; */
+    text-align: left;
+}
+.experience h5{
+    color: #323b4c;
+    font-size: 13px;
+    margin-left: 40px;
+    margin-bottom: 25px;
+    justify-content: left;
+    text-align: left;
+}
+.experience h4{
+    color: #323b4c;
+    font-size: 20px;
+    margin-left: 40px;
+    
+    margin-bottom: 26px;
+    justify-content: left;
+    text-align: left;
+}
+.experience h1{
+    margin-left: -250px;
+}
+.experience {
+    /* width: 48%; */
+    background: #fff;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-left: 300px;
+    /* border: red solid 2px; */
+    /* text-align: left; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: flex-start; */
+    color: #323b4c;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Azzeddine's cv</title>
@@ -18,6 +162,12 @@
             &nbsp;&nbsp;
             <span style="font-size: 15px;">🐙</span> <a href="https://github.com/zwayzo48" style="font-size: 15px; color: #fff; text-decoration: none;">zwayzo48</a>
         </div>
+        <!-- <table border="1">
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr> -->
+        </table>
         <div class="about-me" >
             <h1>About me</h1>
             <h2>________________________</h2>
@@ -31,9 +181,11 @@
             <ul>
                 <li>Programming Languages: Python, Java, C++</li>
                 <li>Web Development: HTML, CSS, JavaScript</li>
+            </ul>
+            <ol type="A">
                 <li>Databases: MySQL, PostgreSQL</li>
                 <li>Tools & Technologies: Git, Docker, Linux</li>
-            </ul>
+            </ol>
             <h1>Languages</h1>
             <h2>________________________</h2>
             <table style="margin-left:40px; color:white; font-size:13px; border-collapse:collapse; border: 2px solid white;">
@@ -71,8 +223,7 @@
             <h5>Internship</h5>
             <h5>Participated in web development and system administration projects using cms, PHP, Django, and Docker.</h5>
             <h5>Collaborated with healthcare professionals to adapt and improve the system for real-world deployment.</h5>
-
-            <h1>Projets</h1>
+            <h1>Projects</h1>
             <h2>________________________</h2>
             <h4>CyberPong - HTML/CSS, JavaScript, Bootstrap, Django, PostgreSQL</h4>
             <h5>- Led the development of the backend for CyberPong, a web-based game, implementing responsive user interfaces using HTML, CSS, and JavaScript, Python  enhancing user experience across devices.</h5>
@@ -92,147 +243,3 @@
         </div>
     </div>
 </body>
-<style>
-        h3 {
-            color: #323b4c;
-            margin-top: 50px;
-            font-size: 40px;
-        }
-        h5 {
-            color: #323b4c;
-            /* font-size: 20px; */
-            margin-top: -20px;
-        }
-        .top-left-square {
-            border-radius: 25px;
-            position: absolute;
-            top: -20px;
-            left: -2px;
-            width: 220px;
-            height: 200px;
-            background-color: #323b4c; /* gray */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .a4-container {
-            width: 210mm;
-            min-height: 297mm;
-            background: #fff;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.15);
-            padding: 40px 30px;
-            position: relative;
-            font-family: 'Arial', sans-serif;
-        }
-        @media print {
-            body, .a4-container {
-                box-shadow: none;
-                background: #fff;
-            }
-        }
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        body {
-            margin-top: -30px;
-            /* position: relative; */
-            
-            text-align: center; /* Center text horizontally */
-            background-color: #efefef; /* Changed page color */
-        }
-        .informations {
-            background-color: #323b4c;
-            color: #fff;
-            padding: 24px 40px;
-            border-radius: 60px;
-            margin-top: 30px;
-            font-size: 20px;
-            min-width: 500px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            display: inline-block;
-            height: 30px;
-        }
-        .about-me{
-            border-radius: 25px;
-            position: absolute;
-            left: -2px;
-            width: 300px;
-            height: 1130px;
-            background-color: #323b4c; /* gray */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            border-radius: 60px;
-            /* border: red solid 2px; */
-        }
-        .about-me h1{
-            color: white;
-            font-size: 30px;
-            /* top: -90px; */
-            margin-left: 40px;
-        }
-        .about-me h2{
-            color: white;
-            font-size: 20px;
-            margin-left: 40px;
-            margin-top: -30px;
-        }
-        .experience h2{
-            color: #323b4c;
-            font-size: 20px;
-            margin-left: -150px;
-            margin-top: -30px;
-        }
-        .about-me h5, ul{
-            color: white;
-            font-size: 13px;
-            margin-left: 40px;
-            margin-top: 10px;
-            /* justify-content: left; */
-            text-align: left;
-        }
-        .experience h5{
-            color: #323b4c;
-            font-size: 13px;
-            margin-left: 40px;
-            margin-bottom: 25px;
-            justify-content: left;
-            text-align: left;
-        }
-        .experience h4{
-            color: #323b4c;
-            font-size: 20px;
-            margin-left: 40px;
-            
-            margin-bottom: 26px;
-            justify-content: left;
-            text-align: left;
-        }
-        .experience h1{
-            margin-left: -250px;
-        }
-        .experience {
-            /* width: 48%; */
-            background: #fff;
-            border-radius: 25px;
-            margin-top: 20px;
-            margin-left: 300px;
-            /* border: red solid 2px; */
-            /* text-align: left; */
-            /* display: flex; */
-            /* flex-direction: column; */
-            /* align-items: center; */
-            /* justify-content: flex-start; */
-            color: #323b4c;
-        }
-        </style>
