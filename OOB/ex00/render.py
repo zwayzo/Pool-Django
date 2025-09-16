@@ -10,6 +10,9 @@ def parse():
     if os.path.splitext(sys.argv[1])[1] != ".template":
         print("Error: Input file must have a .template extension")
         sys.exit(1)
+    if os.path.exists(sys.argv[1]) is False:
+        print(f"Error: {sys.argv[1]} file not found")
+        sys.exit(1)
     try:
         with open("settings.py", 'r') as file:
             content = file.read()
