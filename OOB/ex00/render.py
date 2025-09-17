@@ -17,12 +17,17 @@ def parse():
         with open("settings.py", 'r') as file:
             content = file.read()
             name = re.search(r'name\s*=\s*"([^"]+)"', content)
+            # print("name:", re.search(r'surname\s*=\s*"([^"]+)"', content)[1])
 
-            print("content:", content)
+            # print("content:", content)
         with open(sys.argv[1], 'r') as file:
             template = file.read()
             template = template.replace("{name}", name.group(1))
-            print("template:", template)
+            template = template.replace("{surname}", re.search(r'surname\s*=\s*"([^"]+)"', content).group(1))
+            template = template.replace("{age}", re.search(r'age\s*=\s*"([^"]+)"', content).group(1))
+            template = template.replace("{profession}", re.search(r'profession\s*=\s*"([^"]+)"', content).group(1))
+            print("template:",template)
+            # print("template:", template)
         output_file = os.path.splitext(sys.argv[1])[0] + ".html"
         with open(output_file, 'w') as file:
             file.write(template)
@@ -32,4 +37,4 @@ def parse():
         sys.exit(1)
 
 if __name__ == "__main__":
-    parse() 
+    parse()
