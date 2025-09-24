@@ -24,8 +24,10 @@ def var_to_dict():
     ]
     lenght = len(d)
     i = 0
+    
     for i in range(lenght):
         for j in reversed(range(2)):
+
             print(d[i][j] , end="")
             if j == 1:
                 print(" : ", end="")

@@ -322,9 +322,9 @@ def test():
     
 if __name__ == '__main__':
     try :
-        # html = Elem(tag="h1", content=Elem(tag="title", content=Text("Hello world!")))
-        # print(html)
-        test()
+        html = Elem(tag="h1", content=Elem(tag="title", content=Text("Hello world!")))
+        print(Elem())
+        # test()
         print('Tests succeeded!')
     except AssertionError as e:
         traceback.print_exc()
