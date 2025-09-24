@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 class Text(str):
     """
     A Text class to represent a text you could use with your HTML elements.

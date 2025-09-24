@@ -8,25 +8,32 @@ class HotBeverage:
         return "name : ", self.name, "\nprice: ", self.price, "\ndescription: ", self.description()
 
 class Coffee(HotBeverage):
-    price = 0.40
-    name = "coffee"
-    description = "A coffee, to stay awake."
+    def __init__(self):
+        self.price = 0.40
+        self.name = "coffee"
+        self.description = "A coffee, to stay awake."
+    # price = 0.40
+    # name = "coffee"
+    # description = "A coffee, to stay awake."
 
 
 class Tea(HotBeverage):
-    price = 0.30
-    name = "tea"
-    description = "Just some hot water in a cup."
+    def __init__(self):
+        self.price = 0.30
+        self.name = "tea"
+        self.description = "A tea, to relax."
 
 class Chocolate(HotBeverage):
-    price = 0.50
-    name = "chocolate"
-    description = "Chocolate, sweet chocolate..."
+    def __init__(self):
+        self.price = 0.50
+        self.name = "chocolate"
+        self.description = "A chocolate, to sweeten your day."
 
 class Cappuccino(HotBeverage):
-    price = 0.45
-    name = "cappuccino"
-    description = "Un po' di Italia in una tazza!"
+    def __init__(self):
+        self.price = 0.45
+        self.name = "cappuccino"
+        self.description = "Un po' di Italia in una tazza!"
 
 
 if __name__ == "__main__":
