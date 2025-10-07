@@ -60,6 +60,7 @@ class Page:
             ul, ol, li, h1, h2, p, div, span, hr, br, Text
         )
         
+        
         if not isinstance(elem, allowed_types):
             return False
         
@@ -69,30 +70,43 @@ class Page:
         
         # Validate based on element type
         if isinstance(elem, Html):
+            # print( "Validating Html", self._validate_html(elem) )
             return self._validate_html(elem)
         elif isinstance(elem, Head):
+            # print( "Validating Head", self._validate_head(elem) )
             return self._validate_head(elem)
         elif isinstance(elem, Body):
+            # print( "Validating Body", self._validate_body(elem) )
             return self._validate_body(elem)
         elif isinstance(elem, div):
+            # print( "Validating Div", self._validate_body(elem) )
             return self._validate_body(elem)  # Same rules as Body
         elif isinstance(elem, Title):
+            # print( "Validating Title", self._validate_title(elem) )
             return self._validate_title(elem)
         elif isinstance(elem, (h1, h2)):
+            # print( "Validating Heading", self._validate_heading(elem) )
             return self._validate_heading(elem)
         elif isinstance(elem, li):
+            # print( "Validating Li", self._validate_li(elem) )
             return self._validate_li(elem)
         elif isinstance(elem, (th, td)):
+            # print( "Validating Cell", self._validate_cell(elem) )
             return self._validate_cell(elem)
         elif isinstance(elem, p):
+            # print( "Validating P", self._validate_p(elem) )
             return self._validate_p(elem)
         elif isinstance(elem, span):
+            # print( "Validating Span", self._validate_span(elem) )
             return self._validate_span(elem)
         elif isinstance(elem, (ul, ol)):
+            # print( "Validating List", self._validate_list(elem) )
             return self._validate_list(elem)
         elif isinstance(elem, tr):
+            # print( "Validating Tr", self._validate_tr(elem) )
             return self._validate_tr(elem)
         elif isinstance(elem, table):
+            # print( "Validating Table", self._validate_table(elem) )
             return self._validate_table(elem)
         elif isinstance(elem, (meta, img, hr, br)):
             # Self-closing elements - no content validation needed
@@ -118,8 +132,8 @@ class Page:
                 self._validate_element(elem.content[0]))
     
     def _validate_body(self, elem):
-        """Body and Div must only contain: H1, H2, Div, Table, Ul, Ol, Span, or Text."""
-        allowed = (h1, h2, div, table, ul, ol, span, Text)
+        """Body and Div must only contain: H1, H2, Div, Table, Ul, Ol, Span, P, or Text."""
+        allowed = (h1, h2, div, table, ul, ol, span, p, Text)
         return (len(elem.content) > 0 and
                 all(isinstance(child, allowed) and self._validate_element(child) 
                     for child in elem.content))

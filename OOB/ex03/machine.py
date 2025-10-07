@@ -21,12 +21,13 @@ class CoffeeMachine:
         print("The machine has been repaired.")
 
     
-    def serve(self, Tea):
+    def serve(self, beverage: "HotBeverage"):
         if self.coin <= 0:
             raise self.BrokenMachineException()
         self.coin -= 1
         if random.randint(1, 10) % 2 == 1:
-            return Tea()
+            return beverage()
+            pass
         return self.EmptyCup()
 
 
@@ -44,5 +45,4 @@ if __name__ == "__main__":
 
 
    
-
 

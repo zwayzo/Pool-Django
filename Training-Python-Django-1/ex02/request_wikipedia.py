@@ -1,77 +1,79 @@
 import requests
-import sys
 import dewiki
+import sys
 
+WIKI_API = "https://fr.wikipedia.org/w/api.php"
+HEADERS = {
+    "User-Agent": "MyWikiApp/1.0 (https://example.com; myemail@example.com)"
+}
 
-def right_word(search):
-    # print("welcome")
-    url = "https://fr.wikipedia.org/w/api.php"
+def search_wikipedia(query, lang="fr"):
+    url = f"https://{lang}.wikipedia.org/w/api.php"
     params = {
-        "action": "query",
-        "list": "search",
-        "srsearch": search,
+        "action": "opensearch",
+        "search": query,
+        "limit": 1,
+        "namespace": 0,
         "format": "json"
     }
+    r = requests.get(url, params=params, headers=HEADERS)
+    r.raise_for_status()
+    data = r.json()
 
-    headers = {"User-Agent": "MyWikiApp/1.0 (https://example.com; myemail@example.com)"}
+    if len(data) > 1 and data[1]:
+        return data[1][0]  # first suggestion
+    return None
 
-    response = requests.get(url, params=params, headers=headers)
-    data = response.json()
-    print("choose topic:")
-    for result in data["query"]["search"]:
-        print("-",result["title"])
-    sys.exit()
-
-def fetch_summary(title):
-    url = "https://fr.wikipedia.org/w/api.php"
+def get_wikipedia_page(title, lang="fr"):
+    url = f"https://{lang}.wikipedia.org/w/api.php"
     params = {
         "action": "query",
         "format": "json",
-        "titles": title,
         "prop": "extracts",
-        "exintro": True,
-        "explaintext": True
+        "titles": title,
+        "explaintext": True,
+        "exintro": True,   # only intro
+        "redirects": 1     # follow redirects
     }
+    r = requests.get(url, params=params, headers=HEADERS)
+    r.raise_for_status()
+    data = r.json()
 
-    headers = {
-        "User-Agent": "MyWikiApp/1.0 (https://example.com; myemail@example.com)"
-    }
+    page = next(iter(data["query"]["pages"].values()))
+    text = page.get("extract", "")
 
-    response = requests.get(url, params=params, headers=headers)
+    # Fallback: if no text, mark it
+    if not text:
+        return None
 
-    data = response.json()
-    # print("data-->",data)
-    i = 0
-    try:
-        pages = data["query"]["pages"]
+    cleaned = dewiki.from_string(text)
+    save_to_file(title.replace(" ", "_"), cleaned)
+    return cleaned
 
-        for page_id in pages:
-            # print("hee\n")
-            if "extract" in pages[page_id]:
-                print("page:", pages[page_id]["extract"], ":", sys.getsizeof(pages[page_id]["extract"]))
-                i += 1
-            else:
-                print("No extract found.")
-                right_word(title)
-        # sys.exit()
-        # print("|||->",i)
-        if i >= 1:
-            sys.exit()
-        else:
-            right_word(title)
-    except KeyError:
-        print("No results found, please be more specific")
-        right_word(sys.argv[1])
-    # sys.exit()
+
+
+def wiki_lookup(query, lang="fr"):
+    # Try direct fetch
+    result = get_wikipedia_page(query, lang)
+    if result:   # success with content
+        return result
+
+    # If empty or failed → search and fetch first result
+    best_match = search_wikipedia(query, lang)
+    # print("best_match:", best_match)
+    if best_match:
+        result = get_wikipedia_page(best_match, lang)
+        if result:
+            return result
+
+    return f"No results found for '{query}'."
+
+
+def save_to_file(filename, content):
+    # print("content:", content)
+    with open(filename + ".wiki", "w", encoding="utf-8") as f:
+        f.write(content)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python request_wikipedia.py <search_term>")
-        sys.exit(1)
-    
-    print("{}:",dewiki.from_string(sys.argv[1]))
-
-    fetch_summary(dewiki.from_string(sys.argv[1]))
-    print("No results found, please be more specific")
-    # right_word(sys.argv[1])
+    wiki_lookup(sys.argv[1], lang="fr")

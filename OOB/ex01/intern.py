@@ -2,8 +2,8 @@ class intern:
     def __init__(self, name="My name? I’m nobody, an intern, I have no name"):
         self.name = name
 
-    def builder(self, name):
-        self.name = name
+    # def builder(self, name):
+    #     self.name = name
     
     def __str__(self):
         return self.name
@@ -22,7 +22,7 @@ class intern:
 if __name__ == "__main__":
     name = intern()
     print(name)
-    name.builder("Mark")
+    name = intern("Mark")
     print(name)
     print(name.make_coffee())
     try:

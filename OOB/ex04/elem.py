@@ -320,10 +320,39 @@ def test():
     test_errors()
     
 if __name__ == '__main__':
-    try :
-        # html = Elem(tag="h1", content=Elem(tag="title", content=Text("Hello world!")))
-        # print(html)
-        test()
+    try:
+        # Create the HTML structure you requested
+        html = Elem(
+            tag="html",
+            content=[
+                Elem(
+                    tag="head",
+                    content=Elem(
+                        tag="title",
+                        content=Text("Hello ground!")
+                    )
+                ),
+                Elem(
+                    tag="body", 
+                    content=[
+                        Elem(
+                            tag="h1",
+                            content=Text('"Oh no, not again!"')
+                        ),
+                        Elem(
+                            tag="img",
+                            attr={"src": "http://i.imgur.com/pfp3T.jpg"},
+                            tag_type="simple"
+                        )
+                    ]
+                )
+            ]
+        )
+        
+        
+        print(html)
+        
+        test()  
         print('Tests succeeded!')
     except AssertionError as e:
         traceback.print_exc()

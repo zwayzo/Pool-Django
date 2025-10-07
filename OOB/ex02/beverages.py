@@ -8,7 +8,7 @@ class HotBeverage:
         return "name : ", self.name, "\nprice: ", self.price, "\ndescription: ", self.description()
 
 class Coffee(HotBeverage):
-    def __init__(self):
+    def __init__(self, price=0.40, name="coffee", description="A coffee, to stay awake."):
         self.price = 0.40
         self.name = "coffee"
         self.description = "A coffee, to stay awake."

@@ -2,16 +2,15 @@ from elem import Elem, Text
 
 class Html(Elem):
     def __init__(self, content=None, attr=None):
-         super().__init__(tag="html", attr=attr, content=content, tag_type="double")
-        # Elem.__init__(self, tag="html", attr=attr, content=content, tag_type="double")
+        super().__init__(tag="html", attr=attr, content=content, tag_type="double")
 
 class Head(Elem):
     def __init__(self, content=None, attr=None):
-         super().__init__(tag="head", attr=attr, content=content, tag_type="double")
+        super().__init__(tag="head", attr=attr, content=content, tag_type="double")
 
 class Body(Elem):
     def __init__(self, content=None, attr=None):
-         super().__init__(tag="body", attr=attr, content=content, tag_type="double")
+        super().__init__(tag="body", attr=attr, content=content, tag_type="double")
         
 
 class Title(Elem):
