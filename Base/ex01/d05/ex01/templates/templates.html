@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ex01: Template engine.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h1>Ex01: Template engine.</h1>
+  <p>Django’s default template engine allows embedding logic in HTML through template tags and filters.</p>
+
+  <h2>Blocks</h2>
+  <p>Blocks define replaceable sections in templates when using inheritance.</p>
+
+  <h2>Loops: <code>for ... in</code></h2>
+  <pre><code>{% for item in list %}{{ item }}{% endfor %}</code></pre>
+  <p>Used to loop through a list or dictionary in the context.</p>
+
+  <h2><code>if</code> control structures</h2>
+  <pre><code>{% if user.is_authenticated %}Hello, {{ user.username }}{% endif %}</code></pre>
+  <p>Allows conditional rendering based on variables or expressions.</p>
+
+  <h2>Context variables</h2>
+  <p>When a view calls <code>render()</code>, it can pass a dictionary (the context). Inside templates, these variables are accessed with <code>{{ variable_name }}</code>.</p>
+
+{% endblock %}

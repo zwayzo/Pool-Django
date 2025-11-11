@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ex00: Markdown Cheatsheet.</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7dd3fc;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;background:linear-gradient(180deg,#071022 0%, #071422 100%);color:#e6eef6;padding:24px}
+    .wrap{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    h1{font-size:1.6rem;margin:0}
+    .meta{color:var(--muted);font-size:0.9rem}
+    .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:18px}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    a[href^="#"]{color:var(--accent);text-decoration:none}
+    a.anchor{font-size:0.85rem;color:var(--muted)}
+    pre{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:8px;overflow:auto;font-family:Menlo,monospace;font-size:0.9rem}
+    code{background:var(--glass);padding:2px 6px;border-radius:6px;color:#cbd5e1}
+    table{width:100%;border-collapse:collapse;margin:8px 0}
+    th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:left}
+    th{color:var(--accent)}
+    .two-col{display:grid;grid-template-columns:1fr 340px;gap:16px}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}  
+    footer{color:var(--muted);font-size:0.9rem;margin-top:18px}
+    .kbd{border:1px solid rgba(255,255,255,0.06);padding:2px 6px;border-radius:6px;background:rgba(0,0,0,0.25)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Ex00: Markdown Cheatsheet.</h1>
+        <div class="meta">Compact, printable HTML cheatsheet covering standard + common extended Markdown syntax.</div>
+      </div>
+    </header>
+
+    <div class="two-col">
+      <main class="card">
+        <section id="what">
+          <h2>What is Markdown?</h2>
+          <p>Markdown is a lightweight plain-text markup language for writing formatted documents. It was designed to be readable as plain text and easily converted to HTML. Variants like <strong>CommonMark</strong> and <strong>GitHub Flavored Markdown (GFM)</strong> add more features.</p>
+        </section>
+
+        <section id="basic" style="margin-top:12px">
+          <h2>Basic syntax</h2>
+
+          <h3 id="headings">Headings</h3>
+          <pre><code># Heading 1
+## Heading 2
+### Heading 3
+</code></pre>
+
+          <h3 id="paragraphs">Paragraphs & line breaks</h3>
+          <p>Separate paragraphs with a blank line. To force a line break inside a paragraph, end a line with two spaces.</p>
+          <pre><code>This is a paragraph.  
+A new line in the same paragraph.</code></pre>
+
+          <h3 id="emphasis">Emphasis</h3>
+          <pre><code>*italic*     _italic_
+**bold**     __bold__
+***bold+italic***</code></pre>
+
+          <h3 id="lists">Lists</h3>
+          <p><strong>Unordered:</strong> use <code>-</code>, <code>*</code>, or <code>+</code>. Indent for nested lists.</p>
+          <pre><code>- Item 1
+- Item 2
+  - Nested item
+</code></pre>
+
+          <p><strong>Ordered:</strong> numbers + dot. Many renderers auto-number correctly even if you write <code>1.</code> for each item.</p>
+          <pre><code>1. First
+2. Second
+3. Third</code></pre>
+
+          <h3 id="blockquotes">Blockquotes</h3>
+          <pre><code>&gt; This is a blockquote.
+&gt; It can wrap multiple lines.</code></pre>
+
+          <h3 id="code">Code</h3>
+          <p><strong>Inline code:</strong> wrap with backticks.</p>
+          <pre><code>Use the `print()` function.</code></pre>
+          <p><strong>Fenced code block:</strong> use triple backticks and optionally specify the language for highlighting.</p>
+          <pre><code>```python
+def hello():
+    print("Hello")
+```
+</code></pre>
+
+          <h3 id="links-images">Links & Images</h3>
+          <pre><code>[Link text](https://example.com "optional title")
+![Alt text](https://example.com/image.jpg "optional title")</code></pre>
+
+          <h3 id="hr">Horizontal rule</h3>
+          <pre><code>---
+***
+___</code></pre>
+
+        </section>
+
+        <section id="extended" style="margin-top:12px">
+          <h2>Extended / Common extra features</h2>
+
+          <h3 id="tables">Tables (GFM & CommonMark extensions)</h3>
+          <pre><code>| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell A   | Cell B   |
+| Cell C   | Cell D   |</code></pre>
+
+          <h3 id="strikethrough">Strikethrough</h3>
+          <pre><code>~~This is struck through~~</code></pre>
+
+          <h3 id="tasklists">Task lists (GFM)</h3>
+          <pre><code>- [x] Completed
+- [ ] Incomplete</code></pre>
+
+          <h3 id="footnotes">Footnotes (supported by some renderers)</h3>
+          <pre><code>This is a sentence with a footnote.[^1]
+
+[^1]: Footnote text goes here.</code></pre>
+
+          <h3 id="html">Inline HTML</h3>
+          <p>You can use raw HTML tags when Markdown doesn't offer the feature you need. Keep a blank line before and after block-level HTML.</p>
+          <pre><code>&lt;details&gt;
+&lt;summary&gt;Click to open&lt;/summary&gt;
+&lt;p&gt;Hidden content&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+
+          <h3 id="definition">Definition lists, heading IDs, highlights (variants)</h3>
+          <pre><code>Term
+: Definition of the term
+
+### Heading {#custom-id}</code></pre>
+
+        </section>
+
+        <section id="best" style="margin-top:12px">
+          <h2>Best practices & tips</h2>
+          <ul>
+            <li>Keep your Markdown readable as plain text — that's the main advantage.</li>
+            <li>Put blank lines around big elements (lists, code blocks, tables) for consistent rendering.</li>
+            <li>Use fenced code blocks and specify the language for syntax highlighting.</li>
+            <li>Prefer descriptive link text over "click here."</li>
+            <li>Test in the target platform (GitHub, Notion, MkDocs, etc.) because features vary.</li>
+          </ul>
+        </section>
+
+        <section id="summary" style="margin-top:12px">
+          <h2>Quick summary table</h2>
+          <table>
+            <thead>
+              <tr><th>Feature</th><th>Syntax</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Heading</td><td><code># H1</code></td><td>Title</td></tr>
+              <tr><td>Bold</td><td><code>**bold**</code></td><td>bold</td></tr>
+              <tr><td>Italic</td><td><code>*italic*</code></td><td>italic</td></tr>
+              <tr><td>Link</td><td><code>[text](url)</code></td><td>link</td></tr>
+              <tr><td>Image</td><td><code>![alt](url)</code></td><td>image</td></tr>
+              <tr><td>List</td><td><code>- item</code></td><td>bullet</td></tr>
+              <tr><td>Blockquote</td><td><code>&gt; quote</code></td><td>quote</td></tr>
+              <tr><td>Inline code</td><td><code>`code`</code></td><td>code</td></tr>
+              <tr><td>Code block</td><td><code>```lang</code></td><td>multiline code</td></tr>
+              <tr><td>Table</td><td><code>| Col |</code></td><td>table</td></tr>
+              <tr><td>Strikethrough</td><td><code>~~text~~</code></td><td>~~text~~</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="compat" style="margin-top:12px">
+          <h2>Compatibility & variants</h2>
+          <p>Common variants:</p>
+          <ul>
+            <li><strong>Original Markdown</strong> — minimal feature set.</li>
+            <li><strong>CommonMark</strong> — a formal spec for consistent behavior.</li>
+            <li><strong>GitHub Flavored Markdown (GFM)</strong> — adds tables, task lists, autolinks, etc.</li>
+            <li><strong>MultiMarkdown, Markdown Extra</strong> — add footnotes, definition lists and other features.</li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside class="card">
+        <nav>
+          <a class="anchor" href="#what">What</a>
+          <a class="anchor" href="#basic">Basic</a>
+          <a class="anchor" href="#headings">Headings</a>
+          <a class="anchor" href="#lists">Lists</a>
+          <a class="anchor" href="#code">Code</a>
+          <a class="anchor" href="#extended">Extended</a>
+          <a class="anchor" href="#tables">Tables</a>
+          <a class="anchor" href="#best">Tips</a>
+        </nav>
+
+        <div style="margin-top:12px">
+          <h3 style="margin:0 0 8px 0">Small examples</h3>
+          <div>
+            <strong>Inline:</strong>
+            <pre><code>This is **bold**, *italic*, and a [link](https://example.com).</code></pre>
+          </div>
+
+          <div>
+            <strong>Code block (bash):</strong>
+            <pre><code>```bash
+python -m venv venv
+source venv/bin/activate
+```</code></pre>
+          </div>
+
+          <div>
+            <strong>Table short:</strong>
+            <pre><code>| A | B |
+| - | - |
+| 1 | 2 |</code></pre>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:0.9rem">
+          <p><strong>Tip:</strong> If you rely on extra features (footnotes, highlights), check your platform's Markdown support first.</p>
+        </div>
+      </aside>
+    </div>
+
+
+  </div>
+</body>
+</html>
